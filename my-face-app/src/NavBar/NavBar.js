@@ -3,22 +3,22 @@ import './NavBar.scss'
 import {getPosts} from "../apiRepo/postsRepo";
 
 const NavBar = () => {
-    useEffect(() => {
-        const max_width = 700;
+    const max_width = 700;
 
-        const toggleBurgerMenu = () => {
-            let widthMediaSmall = window.matchMedia(`(max-width: ${max_width}px )`)
-            let x = document.getElementById("myLinks");
-            if (widthMediaSmall){
-                if (x.style.display === "block") {
-                    x.style.display = "none";
-                } else {
-                    x.style.display = "block";
-                }
+    const toggleBurgerMenu = () => {
+        let widthMediaSmall = window.matchMedia(`(max-width: ${max_width}px )`)
+        let x = document.getElementById("myLinks");
+        if (widthMediaSmall){
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
             }
         }
+    }
 
-        const turnOnOrOffBurgerMenu = () => {
+    useEffect(() => {
+        function turnOnOrOffBurgerMenu(){
             let x = document.getElementById("myLinks");
 
             if(window.innerWidth > max_width){
@@ -36,25 +36,28 @@ const NavBar = () => {
         x.style.display = "none";
         window.onresize = turnOnOrOffBurgerMenu;
         turnOnOrOffBurgerMenu()
+
     }, [])
 
 
     return (
-        <div className="topnav">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-            <a href="" className="logo" id="logo">MyFace</a>
-            {/*Navigation links (hidden by default)*/}
-            <div id="myLinks">
-                <a className="nav-link text-dark" href={""}>Homepage</a>
-                <a data-modal-target="#modal" className="nav-link text-dark" id="create-post-link" href={""}>Post</a>
-                <a className="nav-link text-dark" href={""}>Users</a>
-                <a className="nav-link text-dark" href={""}>Privacy</a>
+        <header>
+            <div className="topnav">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                <a href="" className="logo" id="logo">MyFace</a>
+                {/*Navigation links (hidden by default)*/}
+                <div id="myLinks">
+                    <a className="nav-link text-dark" href={""}>Homepage</a>
+                    <a data-modal-target="#modal" className="nav-link text-dark" id="create-post-link" href={""}>Post</a>
+                    <a className="nav-link text-dark" href={""}>Users</a>
+                    <a className="nav-link text-dark" href={""}>Privacy</a>
+                </div>
+                {/*"Hamburger menu" / "Bar icon" to toggle the navigation links*/}
+                <a className="icon" onClick={toggleBurgerMenu}>
+                    <i className="fa fa-bars"></i>
+                </a>
             </div>
-            {/*"Hamburger menu" / "Bar icon" to toggle the navigation links*/}
-            <a className="icon" onClick="toggleBurgerMenu()">
-                <i className="fa fa-bars"></i>
-            </a>
-        </div>
+        </header>
     )
 }
 
