@@ -20,7 +20,11 @@ const PostsPage = () => {
                 {
                     postsData !== null
                         ?
-                        "there is data"
+                        postsData.items.map
+                        (
+                            (post, index) =>
+                            <IndividualPost post={post}/>
+                        )
                         :
                         "there is no data"
                 }
@@ -29,5 +33,32 @@ const PostsPage = () => {
     )
 
 }
+
+const IndividualPost = (props) => {
+    return(
+        <div className={"list-of-posts"}>
+            <User userInfo={props} />
+        </div>
+
+    )
+
+
+}
+
+const User = (props) =>
+    <div className={"post-user"}>
+        <div className={"post-user-info"}>
+            <p className={"display-name"}>{props.postedBy.displayName}</p>
+            <p className={"post-time"}>{props.postedAt}</p>
+        </div>
+
+    </div>
+    // props.userInfo
+    // Display name
+    // Time posted.
+    // Image.
+
+
+
 
 export default PostsPage
