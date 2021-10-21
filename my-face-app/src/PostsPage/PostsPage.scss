@@ -1,0 +1,105 @@
+* {
+  font-family: 'Space Mono', monospace;
+}
+
+.post-message {
+  margin: 20px 0;
+}
+
+.list-of-posts {
+  background-color: white;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.pageContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: lightgray;
+}
+
+.page-title {
+  text-align: center;
+  background-color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
+}
+
+.post-user {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.profile-picture {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  border-color: #1f6555;
+  border-width: thick;
+  background-color: #1f6555;
+}
+
+.posts-article {
+}
+
+div.post-user-info {
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+p.display-name {
+  font-weight: bold;
+}
+
+p.post-time {
+  color: rgba(0, 0, 0, 0.43);
+  font-size: 12px;
+}
+
+p {
+  display: block;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+
+.post-image {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.post-data .post-likes {
+  display: inline;
+  white-space: nowrap;
+  margin-right: 20px;
+
+}
+.post-data .post-dislikes {
+  display: inline;
+  white-space: nowrap;
+}
+
+.user-info {
+  height: 100px;
+  width: 100px;
+}
+

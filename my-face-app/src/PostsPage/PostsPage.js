@@ -16,19 +16,21 @@ const PostsPage = () => {
     return (
         <div className={"posts-page"}>
             <h1 className={"page-title"}>My Face Posts</h1>
-            <section>
-                {
-                    postsData !== null
-                        ?
-                        postsData.items.map((post, index) => {
-                            return (
-                                <IndividualPost post={post} />
-                            )
-                        })
-                        :
-                        "there is no data"
-                }
-            </section>
+            <article className={"posts-article"}>
+                <ul className={"pageContent"}>
+                    {
+                        postsData !== null
+                            ?
+                            postsData.items.map((post, index) => {
+                                return (
+                                    <IndividualPost post={post} />
+                                )
+                            })
+                            :
+                            "there is no data"
+                    }
+                </ul>
+            </article>
         </div>
     )
 
@@ -36,7 +38,7 @@ const PostsPage = () => {
 
 const IndividualPost = (props) => {
     return(
-        <div className={"list-of-posts"}>
+        <li className={"list-of-posts"}>
             <User userInfo={props.post} />
 
             <div className={"post-message"}>
@@ -45,10 +47,10 @@ const IndividualPost = (props) => {
             </div>
 
             <div className={"post-data"}>
-                <p className={"post-likes"}>#x1F44D {props.post.likes.length}</p>
-                <p className={"post-dislikes"}>#x1F44E {props.post.dislikes.length}</p>
+                <p className={"post-likes"}>&#x1F44D {props.post.likes.length}</p>
+                <p className={"post-dislikes"}>&#x1F44E {props.post.dislikes.length}</p>
             </div>
-        </div>
+        </li>
     )
 }
 
