@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./PostsPage.scss"
+import { getPosts } from "../apiRepo/postsRepo";
 
 const PostsPage = () => {
     const [postsData, setPostsData] = useState(null);
@@ -7,17 +8,22 @@ const PostsPage = () => {
     //TODO make api call in component or app and pass down as prop
 
     useEffect(() => {
-        fetch("https://localhost:5001/posts")
-            .then(response => response.json())
-            .then(json => setPostsData(json))
-            .catch(error => console.log("Oh no, it went wrong", error))
-            .finally(() => console.log("Request finished."))
+        getPosts()
+            .then(response => setPostsData(response))
+            .catch(() => setPostsData(null))
     }, [])
 
     return (
         <div className={"posts-page"}>
             <h1 className={"page-title"}>My Face Posts</h1>
             <section>
+                {
+                    postsData !== null
+                        ?
+                        "there is data"
+                        :
+                        "there is no data"
+                }
             </section>
         </div>
     )
