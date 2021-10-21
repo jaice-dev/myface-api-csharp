@@ -20,11 +20,11 @@ const PostsPage = () => {
                 {
                     postsData !== null
                         ?
-                        postsData.items.map
-                        (
-                            (post, index) =>
-                            <IndividualPost post={post}/>
-                        )
+                        postsData.items.map((post, index) => {
+                            return (
+                                <IndividualPost post={post} />
+                            )
+                        })
                         :
                         "there is no data"
                 }
@@ -37,21 +37,17 @@ const PostsPage = () => {
 const IndividualPost = (props) => {
     return(
         <div className={"list-of-posts"}>
-            <User userInfo={props} />
+            <User userInfo={props.post} />
         </div>
-
     )
-
-
 }
 
 const User = (props) =>
     <div className={"post-user"}>
         <div className={"post-user-info"}>
-            <p className={"display-name"}>{props.postedBy.displayName}</p>
-            <p className={"post-time"}>{props.postedAt}</p>
+            <p className={"display-name"}>{props.userInfo.postedBy.displayName}</p>
+            <p className={"post-time"}>{props.userInfo.postedAt}</p>
         </div>
-
     </div>
     // props.userInfo
     // Display name
