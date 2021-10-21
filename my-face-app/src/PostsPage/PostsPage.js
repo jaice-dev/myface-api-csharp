@@ -38,6 +38,16 @@ const IndividualPost = (props) => {
     return(
         <div className={"list-of-posts"}>
             <User userInfo={props.post} />
+
+            <div className={"post-message"}>
+                <p className={"post-message"}>{props.post.message}</p>
+                <img className={"post-image"} src={props.post.imageUrl} alt={"post picture"} />
+            </div>
+
+            <div className={"post-data"}>
+                <p className={"post-likes"}>#x1F44D {props.post.likes.length}</p>
+                <p className={"post-dislikes"}>#x1F44E {props.post.dislikes.length}</p>
+            </div>
         </div>
     )
 }
@@ -48,13 +58,8 @@ const User = (props) =>
             <p className={"display-name"}>{props.userInfo.postedBy.displayName}</p>
             <p className={"post-time"}>{props.userInfo.postedAt}</p>
         </div>
+        <img className={"profile-picture"} src={props.userInfo.postedBy.profileImageUrl} alt="Profile picture"/>
     </div>
-    // props.userInfo
-    // Display name
-    // Time posted.
-    // Image.
-
-
 
 
 export default PostsPage
