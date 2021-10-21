@@ -1,10 +1,12 @@
 import './App.scss';
 import PostsPage from "./PostsPage/PostsPage";
+import NavBar from "./NavBar/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <PostsPage />
+        <NavBar />
+        <PostsPage />
     </div>
   );
 }
