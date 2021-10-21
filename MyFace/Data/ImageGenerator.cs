@@ -7,9 +7,9 @@ namespace MyFace.Data
     {
         private static IEnumerable<int> _brokenImages = new List<int>
         {
-
+            1, 24, 32, 36, 44, 47
         };
-        
+
         public static string GetPostImage(int index)
         {
             return GetImage(100 + index, 1600, 900);
@@ -32,7 +32,7 @@ namespace MyFace.Data
                 return null;
             }
 
-            return $"https://i.picsum.photos/id/{index}/{width}/{height}.jpg";
+            return $"https://picsum.photos/id/{index}/{width}/{height}";
         }
     }
 }
