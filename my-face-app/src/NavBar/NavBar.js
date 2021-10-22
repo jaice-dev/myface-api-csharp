@@ -18,7 +18,7 @@ const NavBar = () => {
     }
 
     useEffect(() => {
-        function turnOnOrOffBurgerMenu(){
+        const turnOnOrOffBurgerMenu = () => {
             let x = document.getElementById("myLinks");
 
             if(window.innerWidth > max_width){
@@ -54,7 +54,7 @@ const NavBar = () => {
                 </div>
                 {/*"Hamburger menu" / "Bar icon" to toggle the navigation links*/}
                 <a className="icon" onClick={toggleBurgerMenu}>
-                    <i className="fa fa-bars"></i>
+                    <i className="fa fa-bars"/>
                 </a>
             </div>
         </header>

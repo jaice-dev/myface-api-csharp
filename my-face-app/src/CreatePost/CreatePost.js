@@ -11,14 +11,13 @@ const CreatePost = () => {
                     <input type="number" id="userId" name="userId" alt="user id input box"/><br/>
 
                     <label htmlFor="Message">Input Message</label><br/>
-                    <textarea id="Message" type="text" name="Message"></textarea><br/>
+                    <textarea id="Message" name="Message"/><br/>
 
                     <label htmlFor="ImageUrl">Input Image Url</label><br/>
                     <div className={"image-url-input"}>
                         <input id="ImageUrl-image" type="text" name="ImageUrl"/><br/>
                         <input type="submit"/>
                     </div>
-
                 </fieldset>
             </form>
         </div>
