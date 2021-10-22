@@ -47,8 +47,8 @@ const NavBar = () => {
                 <a href="" className="logo" id="logo">MyFace</a>
                 {/*Navigation links (hidden by default)*/}
                 <div id="myLinks">
-                    <a className="nav-link text-dark" href={""}>Homepage</a>
-                    <a data-modal-target="#modal" className="nav-link text-dark" id="create-post-link" href={""}>Post</a>
+                    <a className="nav-link text-dark" href={"/posts"}>Homepage</a>
+                    <a data-modal-target="#modal" className="nav-link text-dark" id="create-post-link" href={"/posts/create"}>Post</a>
                     <a className="nav-link text-dark" href={""}>Users</a>
                     <a className="nav-link text-dark" href={""}>Privacy</a>
                 </div>
