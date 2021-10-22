@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using MyFace.Models.Request;
 using MyFace.Models.Response;
 using MyFace.Repositories;
@@ -52,6 +53,13 @@ namespace MyFace.Controllers
         {
             var post = _posts.AddInteraction(id, newInteraction);
             return new OkObjectResult(post);
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult DeletePost(int id)
+        {
+            _posts.DeletePost(id);
+            return Ok();
         }
     }
 }

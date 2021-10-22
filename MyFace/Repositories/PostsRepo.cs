@@ -14,6 +14,7 @@ namespace MyFace.Repositories
         Post GetById(int id);
         Post CreatePost(CreatePostRequestModel postModel);
         Post AddInteraction(int id, CreateInteractionRequestModel newInteraction);
+        string DeletePost(int id);
     }
     
     public class PostsRepo : IPostsRepo
@@ -79,6 +80,14 @@ namespace MyFace.Repositories
             _context.SaveChanges();
             
             return post;
+        }
+
+        public string DeletePost(int id)
+        {
+            Post post = _context.Posts.Single(x => x.Id == id);
+            _context.Posts.Remove(post);
+            _context.SaveChanges();
+            return "Post has been successfully deleted";
         }
     }
 }

@@ -3,6 +3,7 @@ import "./PostsPage.scss"
 import { getPosts } from "../apiRepo/postsRepo";
 import Emoji from "../Emoji/Emoji";
 import moment from "moment"
+import {deletePost} from "../apiRepo/postsRepo";
 
 const PostsPage = () => {
     const [postsData, setPostsData] = useState(null);
@@ -51,6 +52,7 @@ const IndividualPost = (props) => {
             <div className={"post-data"}>
                 <p className={"post-likes"}><Emoji symbol="👍" label="thumbs-up"/> {props.post.likes.length}</p>
                 <p className={"post-dislikes"}><Emoji symbol="👎" label="thumbs-down"/> {props.post.dislikes.length}</p>
+                <DeleteButton post={props.post}/>
             </div>
         </li>
     )
@@ -65,5 +67,7 @@ const User = (props) =>
         <img className={"profile-picture"} src={props.userInfo.postedBy.profileImageUrl} alt="Profile picture"/>
     </div>
 
+const DeleteButton = (props) =>
+    <button onClick={() => deletePost(props.post.id)}>Delete</button>
 
 export default PostsPage

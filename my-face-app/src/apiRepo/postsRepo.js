@@ -26,4 +26,17 @@ const makePost = async (inputs) => {
     }
 }
 
-export { getPosts, makePost }
+const deletePost = async (id) => {
+    try {
+        const response = await fetch(`https://localhost:5001/posts/${id}`, {
+            method: "DELETE",
+        })
+        console.log(response)
+        return await response;
+    } catch (error) {
+        console.log("Oh no, it went wrong", error)
+        throw error;
+    }
+}
+
+export { getPosts, makePost, deletePost }
