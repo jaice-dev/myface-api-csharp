@@ -104,3 +104,18 @@ p {
   width: 100px;
 }
 
+.delete-button {
+  background-color: #1f6555;
+  border-radius: 5px;
+  color: white;
+  border-style: none;
+  padding: 5px 10px;
+  justify-content: flex-end;
+}
+
+.post-data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
