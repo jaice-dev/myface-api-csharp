@@ -21,13 +21,32 @@ const CreatePost = () => {
         event.preventDefault();
         console.log(inputs)
         // alert(`UserId: ${inputs.UserId}. Message: ${inputs.Message} ImageUrl: ${inputs.ImageUrl}`)
-        makePost(inputs)
+        makePost(inputs).then(response => {
+            if (response.status === 201) {
+                alert("Message sent successfully! \n" +
+                    "\n" +
+                    `User ID: ${inputs.UserId}\n` +
+                    `Message: ${inputs.Message} \n` +
+                    `ImageUrl: ${inputs.ImageUrl}`)
+                clearForm()
+            } else {
+                alert(`Error: error code ${response.status}`)
+            }
+        })
+    }
+
+    const clearForm = () => {
+        setInputs({
+            UserId: "",
+            Message: "",
+            ImageUrl: ""
+        })
     }
 
 
     return (
         <div className="post-form-container">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id={"reset"}>
                 <fieldset>
                     <legend>Create a New Post</legend>
                     <label htmlFor="userId">User Id</label><br/>

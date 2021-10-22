@@ -17,9 +17,7 @@ const makePost = async (inputs) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(inputs)
         })
-        //Message
-        //Image Url
-        //UserId (int)
+        return await response;
     } catch (error) {
         console.log("Oh no, it went wrong", error)
         throw error;
